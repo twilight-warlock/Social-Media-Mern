@@ -12,3 +12,11 @@
 - Generalised routes in app.json
 
 ===
+
+- Created User model using Schema and model from mongoose
+
+===
+
+- Initialized Middleware in app.js to accept req.body as json
+- Added express validator by using check and validationResult
+- Handled validation errors

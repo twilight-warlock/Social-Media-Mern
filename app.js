@@ -10,6 +10,9 @@ const app = express()
 // Connecting to database
 connectDb()
 
+// Initialize middleware
+app.use(express.json({extended: false}))
+
 app.get("/",(req,res)=>res.send("Connected"))
 
 // Defining routes
