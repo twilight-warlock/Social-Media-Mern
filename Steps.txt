@@ -1,0 +1,14 @@
+- Installed dependencies and started express server
+
+===
+
+- Created a folder called config and added default,json file to it.
+- Added global variable to use mongodb connection link from it
+- Created a file called connectToDatabase to use config and mongoose to connect with database 
+
+===
+
+- Created Folder structure for routes
+- Generalised routes in app.json
+
+===
