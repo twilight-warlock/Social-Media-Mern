@@ -4,6 +4,12 @@ import userRoutes from "./routes/api/users.js"
 import profileRoutes from "./routes/api/profile.js"
 import authRoutes from "./routes/api/auth.js"
 import postsRoutes from "./routes/api/posts.js"
+import mongoose from "mongoose"
+
+// Mongoose warnings resolve queries
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 const app = express()
 
