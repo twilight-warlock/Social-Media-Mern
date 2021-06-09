@@ -20,3 +20,8 @@
 - Initialized Middleware in app.js to accept req.body as json
 - Added express validator by using check and validationResult
 - Handled validation errors
+
+===
+
+- Minor changes to make code better
+- Save the newly created user

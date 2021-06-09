@@ -3,7 +3,6 @@ import { check, validationResult} from "express-validator"
 import User from "../../models/User.js"
 import gravatar from "gravatar"
 import bcrypt from "bcryptjs"
-import jwt from "jsonwebtoken"
 
 const router = Router()
 
@@ -22,31 +21,42 @@ router.post("/",[
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array()})
         }
-        
-        // Check if user exists
-        const queryResult = await User.findOne({email:req.body.email})
 
-        if(queryResult){
-            return res.status(400).json({msg:"User already exists"})
+        const {username, email, password} = req.body
+
+        try {
+            // Check if user exists
+            let queryResult = await User.findOne({email})
+    
+            if(queryResult){
+                return res.status(400).json({errors : [{msg:"User already exists"}]})
+            }
+    
+            // Gravatar url
+            const gravatarUrl = await gravatar.url(email,{protocol: 'https', s: '100', r: 'pg', d: 'mm'})
+    
+            // Encrypt password
+            const salt = await bcrypt.genSaltSync(10);
+            const hashPassword = await bcrypt.hashSync(password, salt); 
+            
+            // Create a new user
+            queryResult = new User({
+                email,
+                username,
+                avatar: gravatarUrl,
+                password: hashPassword
+            })
+    
+            // Save the new user
+            await queryResult.save()
+
+            // Return jsonwebtoken
+            res.send("User registered")
+            
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send("Server error")
         }
-
-        // Gravatar url
-        const gravatarUrl = await gravatar.url(req.body.email,{protocol: 'https', s: '100'})
-
-        // Encrypt password
-        const salt = bcrypt.genSaltSync(10);
-        const hashPassword = bcrypt.hashSync(req.body.password, salt); 
-        
-        // Return jsonwebtoken
-        const data = {
-            username: req.body.username,
-            password: hashPassword,
-            email: req.body.email,
-            gravatar: gravatarUrl
-        }
-
-        console.log(data);
-        res.send("Post route")
 })
 
 export default router
