@@ -25,3 +25,10 @@
 
 - Minor changes to make code better
 - Save the newly created user
+
+===
+
+- Once user is saved, extract it's user.id (_id in mongo) and use it as payload.
+- Pass the payload, jwtSecret, optional arguments for expiration time and callback function to jwt.sign to send jwt token
+
+===

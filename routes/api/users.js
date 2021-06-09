@@ -3,6 +3,8 @@ import { check, validationResult} from "express-validator"
 import User from "../../models/User.js"
 import gravatar from "gravatar"
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
+import config from "config"
 
 const router = Router()
 
@@ -51,7 +53,24 @@ router.post("/",[
             await queryResult.save()
 
             // Return jsonwebtoken
-            res.send("User registered")
+            const payload = {
+                user: {
+                    id: queryResult.id
+                }
+            }
+
+            // Using payload to create encoded token
+            jwt.sign(
+                payload, 
+                config.get("jsonWebTokenSecret"), 
+                {expiresIn: config.get("expiresIn")},
+                (err,token) => {
+                    if(err){
+                        throw err;
+                    }
+                    res.json({token})
+                }
+            )
             
         } catch (err) {
             console.error(err.message);
