@@ -32,3 +32,6 @@
 - Pass the payload, jwtSecret, optional arguments for expiration time and callback function to jwt.sign to send jwt token
 
 ===
+
+- Created middleware for protected routes
+- Used middleware to get user id and then use it further to get all user data.
