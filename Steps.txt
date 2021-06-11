@@ -39,3 +39,7 @@
 ===
 
 - Made a route for user login by verifying token
+
+===
+
+- Profile model created
