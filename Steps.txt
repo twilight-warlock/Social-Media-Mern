@@ -35,3 +35,7 @@
 
 - Created middleware for protected routes
 - Used middleware to get user id and then use it further to get all user data.
+
+===
+
+- Made a route for user login by verifying token
