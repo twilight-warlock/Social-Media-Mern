@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import User from "./User.js"
 
 const {Schema, model} = mongoose
 
@@ -108,7 +107,8 @@ const profileSchema = new Schema({
                 type:String
             },
             imageUrl:{
-                type: String
+                type: String,
+                required: true
             }
         }
     ],
