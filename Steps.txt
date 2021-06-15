@@ -57,3 +57,8 @@
 - Saved new profile if not created
 
 ===
+
+- Tried a new folder structure for api
+- Haha looks neattt
+
+===
