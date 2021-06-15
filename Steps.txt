@@ -62,3 +62,8 @@
 - Haha looks neattt
 
 ===
+
+- Added a route to get all profiles, getting a good hang of it
+
+===
+
