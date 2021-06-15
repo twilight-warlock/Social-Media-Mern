@@ -71,3 +71,8 @@
 
 ===
 
+- Added a route to delete account
+- Found a bug on updating profile and fixed it
+
+===
+

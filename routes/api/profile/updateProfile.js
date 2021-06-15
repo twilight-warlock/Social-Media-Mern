@@ -1,6 +1,7 @@
 import { Router } from "express";
 import auth from "../../../middleware/auth.js";
 import Profile from "../../../models/Profile.js";
+import User from "../../../models/User.js";
 import { check, validationResult } from "express-validator";
 
 const router = Router();
@@ -63,6 +64,11 @@ router.post(
 
 		try {
 			let profile = await Profile.findOne({ user: req.user.id });
+
+			const user = await User.findOne({ _id: req.user.id });
+			if (!user) {
+				return res.status(400).json({ msg: "User not found" });
+			}
 
 			// Update
 			if (profile) {
