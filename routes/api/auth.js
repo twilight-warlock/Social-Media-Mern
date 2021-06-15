@@ -24,6 +24,11 @@ router.get("/",auth,async (req,res)=>{
     }
 })
 
+/*
+@route      POST api/auth
+@desc       Return token
+@access     Public
+*/
 router.post("/",[
     check("email","Email is not valid").isEmail(),
     check("password","Password is required").exists()

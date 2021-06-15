@@ -51,3 +51,9 @@
 - Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, a plain object, multiple plain objects, or all objects returned from a query
 
 ===
+
+- Joi is better than express validation so use it in next project
+- Used the findOneAndUpdate function of mongoose to update pre existing Profile
+- Saved new profile if not created
+
+===
