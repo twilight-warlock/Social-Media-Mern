@@ -67,3 +67,7 @@
 
 ===
 
+- Added a route to get a particular user's profile
+
+===
+

@@ -1,6 +1,7 @@
 import { Router } from "express";
-const router = Router();
 import Profile from "../../../models/Profile.js";
+
+const router = Router();
 
 /*
 @route      GET api/profile
@@ -9,7 +10,10 @@ import Profile from "../../../models/Profile.js";
 */
 router.get("/", async (req, res) => {
 	try {
-		const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+		const profiles = await Profile.find().populate("user", [
+			"username",
+			"avatar",
+		]);
 		res.json(profiles);
 	} catch (err) {
 		console.error(err.message);

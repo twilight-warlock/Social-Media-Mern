@@ -16,7 +16,7 @@ router.get("/me", auth, async (req, res) => {
 		// the fields passewd in []
 		const profile = await Profile.findOne({ user: req.user.id }).populate(
 			"user",
-			["name", "avatar"]
+			["username", "avatar"]
 		);
 
 		if (!profile) {
