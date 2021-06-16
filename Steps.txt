@@ -96,3 +96,5 @@
 - Added route to get user's github repos data
 
 ===
+
+- Created a model for posts
