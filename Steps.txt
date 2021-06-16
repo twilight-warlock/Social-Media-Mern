@@ -92,3 +92,7 @@
 - Adde route to add and delete project
 
 ===
+
+- Added route to get user's github repos data
+
+===
