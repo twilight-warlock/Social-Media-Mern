@@ -102,3 +102,7 @@
 ===
 
 - Added route to add posts
+
+===
+
+- Added get and delete route for posts
