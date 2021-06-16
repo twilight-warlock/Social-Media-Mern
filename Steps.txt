@@ -98,3 +98,7 @@
 ===
 
 - Created a model for posts
+
+===
+
+- Added route to add posts
