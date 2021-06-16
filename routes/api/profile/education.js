@@ -1,6 +1,5 @@
 import { Router } from "express";
 import Profile from "../../../models/Profile.js";
-import User from "../../../models/User.js";
 import auth from "../../../middleware/auth.js";
 import joi from "joi";
 
@@ -31,11 +30,6 @@ router.put("/education", auth, async (req, res) => {
 				startDate: joi.date().required(),
 			})
 			.validateAsync({ degree, universityName, startDate });
-
-		// Used with .validate and not with validateAsync
-		// if (error) {
-		// 	return res.status(400).json({ msg: error.details[0].message });
-		// }
 
 		const newEducation = {
 			degree,
@@ -74,6 +68,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 	try {
 		const profile = await Profile.findOne({ user: req.user.id });
 
+		// method 2
 		const indexVal = profile.education
 			.map((edu) => edu.id)
 			.indexOf(req.params.edu_id);

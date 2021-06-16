@@ -1,6 +1,5 @@
 import { Router } from "express";
 import Profile from "../../../models/Profile.js";
-import User from "../../../models/User.js";
 import auth from "../../../middleware/auth.js";
 import joi from "joi";
 
