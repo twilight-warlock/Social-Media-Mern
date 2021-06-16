@@ -85,3 +85,7 @@
 
 ===
 
+- Added routes to add and delete education
+
+===
+

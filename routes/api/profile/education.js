@@ -6,49 +6,51 @@ import joi from "joi";
 
 const router = Router();
 /*
-@route      PUT api/profile/experience
-@desc       Add experience
+@route      PUT api/profile/education
+@desc       Add education
 @access     Private
 */
-router.put("/experience", auth, async (req, res) => {
+router.put("/education", auth, async (req, res) => {
 	const {
-		role,
-		companyName,
+		degree,
+		universityName,
 		startDate,
-		employmentType,
+		fieldOfStudy,
 		location,
 		endDate,
 		description,
 		current,
+		grade,
 	} = req.body;
 
 	try {
 		await joi
 			.object({
-				role: joi.string().min(3).max(40).required(),
-				companyName: joi.string().min(3).required(),
+				degree: joi.string().min(3).max(40).required(),
+				universityName: joi.string().min(3).required(),
 				startDate: joi.date().required(),
 			})
-			.validateAsync({ role, companyName, startDate });
+			.validateAsync({ degree, universityName, startDate });
 
 		// Used with .validate and not with validateAsync
 		// if (error) {
 		// 	return res.status(400).json({ msg: error.details[0].message });
 		// }
 
-		const newExp = {
-			role,
-			companyName,
+		const newEducation = {
+			degree,
+			universityName,
 			startDate,
-			employmentType,
+			fieldOfStudy,
 			location,
 			endDate,
 			description,
 			current,
+			grade,
 		};
 
 		const profile = await Profile.findOne({ user: req.user.id });
-		profile.experience.unshift(newExp);
+		profile.education.unshift(newEducation);
 
 		await profile.save();
 
@@ -64,23 +66,22 @@ router.put("/experience", auth, async (req, res) => {
 });
 
 /*
-@route      DELETE api/profile/experience/:exp_id
-@desc       delete experience
+@route      DELETE api/profile/education/:edu_id
+@desc       delete education
 @access     Private
 */
-router.delete("/experience/:exp_id", auth, async (req, res) => {
+router.delete("/education/:edu_id", auth, async (req, res) => {
 	try {
 		const profile = await Profile.findOne({ user: req.user.id });
-		const oldLength = profile.experience.length;
 
-		// method 1
-		profile.experience = profile.experience.filter(
-			(exp) => exp._id != req.params.exp_id
-		);
+		const indexVal = profile.education
+			.map((edu) => edu.id)
+			.indexOf(req.params.edu_id);
 
-		if (profile.experience.length === oldLength) {
-			return res.status(400).json({ msg: "Experience data not found" });
+		if (indexVal == -1) {
+			return res.status(400).json({ msg: "Education data not found" });
 		}
+		profile.education.splice(indexVal, 1);
 
 		await profile.save();
 

@@ -5,6 +5,7 @@ import getAllProfiles from "./getAllProfiles.js";
 import getProfileById from "./getProfileById.js";
 import deleteProfile from "./deleteProfile.js";
 import experience from "./experience.js";
+import education from "./education.js";
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use("/", getAllProfiles);
 router.use("/", getProfileById);
 router.use("/", deleteProfile);
 router.use("/", experience);
+router.use("/", education);
 
 export default router;
