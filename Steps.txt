@@ -126,3 +126,7 @@
 ===
 
 - Made UI for landing page.
+
+===
+
+- Added UI template
