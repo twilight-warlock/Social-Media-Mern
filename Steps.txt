@@ -110,3 +110,8 @@
 ===
 
 - Added route to like and unlike posts
+
+===
+
+- Added route to add and delete comments
+- Realized filter won't work here
