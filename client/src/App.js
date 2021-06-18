@@ -6,7 +6,7 @@ import LandingPage from "./components/layout/LandingPage";
 const App = () => {
 	return (
 		<Fragment>
-			<Navbar></Navbar>
+			<Navbar />
 			<LandingPage />
 		</Fragment>
 	);

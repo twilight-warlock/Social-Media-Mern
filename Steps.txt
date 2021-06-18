@@ -122,3 +122,7 @@
 - Added proxy for not repeating standard http line 
 - Used concurrently to work with backend and frontend
 - Installed required packages for frontend
+
+===
+
+- Made UI for landing page.
