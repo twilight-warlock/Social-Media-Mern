@@ -106,3 +106,7 @@
 ===
 
 - Added get and delete route for posts
+
+===
+
+- Added route to like and unlike posts

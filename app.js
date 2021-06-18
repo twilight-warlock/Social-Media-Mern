@@ -3,7 +3,7 @@ import connectDb from "./config/connectToDatabase.js";
 import userRoutes from "./routes/api/users/users.js";
 import profileRoutes from "./routes/api/profile/index.js";
 import authRoutes from "./routes/api/auth/auth.js";
-import postsRoutes from "./routes/api/posts/posts.js";
+import postsRoutes from "./routes/api/posts/index.js";
 
 const app = express();
 
