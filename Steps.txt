@@ -115,3 +115,7 @@
 
 - Added route to add and delete comments
 - Realized filter won't work here
+
+!===!
+
+- Backend completed and frontend set up done

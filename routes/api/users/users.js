@@ -5,6 +5,7 @@ import gravatar from "gravatar";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import config from "config";
+import normalize from "normalize-url";
 
 const router = Router();
 
@@ -42,12 +43,15 @@ router.post(
 			}
 
 			// Gravatar url
-			const gravatarUrl = await gravatar.url(email, {
-				protocol: "https",
-				s: "100",
-				r: "pg",
-				d: "mm",
-			});
+			const gravatarUrl = normalize(
+				gravatar.url(email, {
+					protocol: "https",
+					s: "100",
+					r: "pg",
+					d: "mm",
+				}),
+				{ forceHttps: true }
+			);
 
 			// Encrypt password
 			const salt = await bcrypt.genSaltSync(10);

@@ -3,6 +3,7 @@ import auth from "../../../middleware/auth.js";
 import Profile from "../../../models/Profile.js";
 import User from "../../../models/User.js";
 import { check, validationResult } from "express-validator";
+import normalize from "normalize-url";
 
 const router = Router();
 /*
@@ -46,18 +47,28 @@ router.post(
 		profileFields.user = req.user.id;
 		if (headline) profileFields.headline = headline;
 		if (summary) profileFields.summary = summary;
-		if (website) profileFields.website = website;
+		if (website)
+			profileFields.website = normalize(website, { forceHttps: true });
 		if (location) profileFields.location = location;
 		if (githubUsername) profileFields.githubUsername = githubUsername;
 
 		profileFields.social = {};
-		if (youtube) profileFields.social.youtube = youtube;
-		if (twitter) profileFields.social.twitter = twitter;
-		if (devto) profileFields.social.devto = devto;
-		if (instagram) profileFields.social.instagram = instagram;
-		if (linkedin) profileFields.social.linkedin = linkedin;
-		if (medium) profileFields.social.medium = medium;
-		if (facebook) profileFields.social.facebook = facebook;
+		if (youtube)
+			profileFields.social.youtube = normalize(youtube, { forceHttps: true });
+		if (twitter)
+			profileFields.social.twitter = normalize(twitter, { forceHttps: true });
+		if (devto)
+			profileFields.social.devto = normalize(devto, { forceHttps: true });
+		if (instagram)
+			profileFields.social.instagram = normalize(instagram, {
+				forceHttps: true,
+			});
+		if (linkedin)
+			profileFields.social.linkedin = normalize(linkedin, { forceHttps: true });
+		if (medium)
+			profileFields.social.medium = normalize(medium, { forceHttps: true });
+		if (facebook)
+			profileFields.social.facebook = normalize(facebook, { forceHttps: true });
 
 		if (skills)
 			profileFields.skills = skills.split(",").map((skill) => skill.trim());

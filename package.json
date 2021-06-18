@@ -1,37 +1,39 @@
 {
-  "name": "social-media-mern",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "type": "module",
-  "scripts": {
-    "start": "node app",
-    "server": "nodemon app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/twilight-warlock/Socials-Media-Mern.git"
-  },
-  "author": "Devansh Shah",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/twilight-warlock/Socials-Media-Mern/issues"
-  },
-  "homepage": "https://github.com/twilight-warlock/Socials-Media-Mern#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "bcryptjs": "^2.4.3",
-    "config": "^3.3.6",
-    "express": "^4.17.1",
-    "express-validator": "^6.11.1",
-    "gravatar": "^1.8.1",
-    "joi": "^17.4.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.13",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "concurrently": "^6.2.0",
-    "nodemon": "^2.0.7"
-  }
+	"name": "social-media-mern",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"start": "node app",
+		"server": "nodemon app",
+		"client": "npm start --prefix client",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/twilight-warlock/Socials-Media-Mern.git"
+	},
+	"author": "Devansh Shah",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/twilight-warlock/Socials-Media-Mern/issues"
+	},
+	"homepage": "https://github.com/twilight-warlock/Socials-Media-Mern#readme",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"bcryptjs": "^2.4.3",
+		"config": "^3.3.6",
+		"express": "^4.17.1",
+		"express-validator": "^6.11.1",
+		"gravatar": "^1.8.1",
+		"joi": "^17.4.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.12.13",
+		"normalize-url": "^4.5.1"
+	},
+	"devDependencies": {
+		"concurrently": "^6.2.0",
+		"nodemon": "^2.0.7"
+	}
 }
