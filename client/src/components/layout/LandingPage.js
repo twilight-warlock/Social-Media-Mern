@@ -10,10 +10,10 @@ const LandingPage = () => {
 						One place for Developers exploring their career paths
 					</p>
 					<div className="button-group">
-						<a href="register.html" className="btn btn-primary2">
+						<a href="/register" className="btn btn-primary2">
 							Sign Up
 						</a>
-						<a href="login.html" className="btn btn-light">
+						<a href="/login" className="btn btn-light">
 							Login
 						</a>
 					</div>
