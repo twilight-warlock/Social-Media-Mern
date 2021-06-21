@@ -1,95 +1,151 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
-	return (
-		<div class="wrapper__area sign-up__Mode-active" id="wrapper_Area">
-			<div class="forms__area">
-				<form class="sign-up__form" id="signUpForm">
-					<h1 class="form__title">Sign Up!</h1>
+	const [formData, setformData] = useState({
+		username: "",
+		email: "",
+		password: "",
+		cpassword: "",
+	});
 
-					<div class="input__group">
-						<label class="field">
+	const { username, email, password, cpassword } = formData;
+
+	const onChange = (e) =>
+		setformData({ ...formData, [e.target.name]: e.target.value });
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		if (password !== cpassword) {
+			console.log("Passwords do not match");
+		} else {
+			const newUser = {
+				username,
+				email,
+				password,
+			};
+			console.log(newUser);
+			try {
+				const config = {
+					headers: {
+						"Content-Type": "application/json",
+					},
+				};
+				const body = JSON.stringify(newUser);
+
+				const res = await axios.post("/api/users", body, config);
+				console.log(res.data);
+			} catch (err) {
+				console.error(err.response.data);
+			}
+		}
+	};
+
+	return (
+		<div className="wrapper__area sign-up__Mode-active" id="wrapper_Area">
+			<div className="forms__area">
+				<form
+					className="sign-up__form"
+					id="signUpForm"
+					onSubmit={(e) => onSubmit(e)}
+				>
+					<h1 className="form__title">Sign Up!</h1>
+
+					<div className="input__group">
+						<label className="field">
 							<input
 								type="text"
 								name="username"
 								placeholder="Username123..."
 								id="signUpUsername"
+								required
+								value={username}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
-						<span class="input__icon">
-							<i class="fa fa-user"></i>
+						<span className="input__icon">
+							<i className="fa fa-user"></i>
 						</span>
-						<small class="input__error_message"></small>
+						<small className="input__error_message"></small>
 					</div>
-					<div class="input__group">
-						<label class="field">
+					<div className="input__group">
+						<label className="field">
 							<input
 								type="text"
 								name="email"
 								placeholder="Email@example.com"
 								id="signUpEmail"
+								required
+								value={email}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
-						<span class="input__icon">
-							<i class="fa fa-envelope"></i>
+						<span className="input__icon">
+							<i className="fa fa-envelope"></i>
 						</span>
-						<small class="input__error_message"></small>
+						<small className="input__error_message"></small>
 					</div>
-					<div class="input__group">
-						<label class="field">
+					<div className="input__group">
+						<label className="field">
 							<input
 								type="password"
 								name="password"
 								placeholder="Password123$#%&..."
 								id="signUpPassword"
+								required
+								value={password}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
-						<span class="input__icon">
-							<i class="fa fa-lock"></i>
+						<span className="input__icon">
+							<i className="fa fa-lock"></i>
 						</span>
-						<span class="showHide__Icon">
-							<i class="fa fa-low-vision"></i>
+						<span className="showHide__Icon">
+							<i className="fa fa-low-vision"></i>
 						</span>
-						<small class="input__error_message"></small>
+						<small className="input__error_message"></small>
 					</div>
-					<div class="input__group confirm__group">
-						<label class="field">
+					<div className="input__group confirm__group">
+						<label className="field">
 							<input
 								type="password"
-								name="confirm_password"
+								name="cpassword"
 								placeholder="Confirm Password"
 								id="signUpConfirmPassword"
+								required
+								value={cpassword}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
-						<span class="input__icon">
-							<i class="fa fa-lock"></i>
+						<span className="input__icon">
+							<i className="fa fa-lock"></i>
 						</span>
-						<span class="showHide__Icon">
-							<i class="fa fa-low-vision"></i>
+						<span className="showHide__Icon">
+							<i className="fa fa-low-vision"></i>
 						</span>
-						<small class="input__error_message"></small>
+						<small className="input__error_message"></small>
 					</div>
 
-					<button type="submit" class="submit-button" id="signUpSubmitBtn">
+					<button type="submit" className="submit-button" id="signUpSubmitBtn">
 						Sign Up
 					</button>
 
-					<div class="alternate-login">
-						<div class="link">
-							<i class="bx bxl-google"></i>
+					<div className="alternate-login">
+						<div className="link">
+							<i className="bx bxl-google"></i>
 							<span>Google</span>
 						</div>
-						<div class="link">
-							<i class="bx bxl-facebook-circle"></i>
+						<div className="link">
+							<i className="bx bxl-facebook-circle"></i>
 							<span>Facebook</span>
 						</div>
 					</div>
 				</form>
 			</div>
 
-			<div class="aside__area" id="aside_Area">
-				<div class="sign-up__aside-info">
+			<div className="aside__area" id="aside_Area">
+				<div className="sign-up__aside-info">
 					<h4>Welcome</h4>
 					<img src="https://e.top4top.io/p_1945sidbp2.png" alt="shot" />
 					<p>To Keep connected with us please login with your personal info</p>

@@ -134,3 +134,8 @@
 ===
 
 - React Router Added along with Link component instead of anchor tags
+
+===
+
+- Added functionality to register form
+- Used useState hook along with onChange and onSubmit methods
