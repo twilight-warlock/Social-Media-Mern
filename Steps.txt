@@ -139,3 +139,7 @@
 
 - Added functionality to register form
 - Used useState hook along with onChange and onSubmit methods
+
+===
+
+- Added functionality to login form

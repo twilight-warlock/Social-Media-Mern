@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+	const [formData, setformData] = useState({
+		email: "",
+		password: "",
+	});
+
+	const { email, password } = formData;
+
+	const onChange = (e) =>
+		setformData({ ...formData, [e.target.name]: e.target.value });
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+
+		console.log(formData);
+	};
 	return (
 		<div className="wrapper__area" id="wrapper_Area">
 			<div className="forms__area">
-				<form className="login__form" id="loginForm">
+				<form
+					className="login__form"
+					id="loginForm"
+					onSubmit={(e) => onSubmit(e)}
+				>
 					<h1 className="form__title">Sign In!</h1>
 					<div className="input__group">
 						<label className="field">
 							<input
 								type="text"
-								name="username"
-								placeholder="Username"
+								name="email"
+								placeholder="Email@example.com"
 								id="loginUsername"
+								value={email}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
 						<span className="input__icon">
@@ -28,6 +49,8 @@ const Login = () => {
 								name="password"
 								placeholder="Password"
 								id="loginPassword"
+								value={password}
+								onChange={(e) => onChange(e)}
 							/>
 						</label>
 						<span className="input__icon">
