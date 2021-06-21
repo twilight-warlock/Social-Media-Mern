@@ -100,10 +100,12 @@ body {
 /* Wrapper Area */
 .wrapper__area {
 	position: relative;
-	width: 800px;
-	height: 650px;
+	width: 770px;
+	height: 600px;
+	margin: auto;
+	margin-top: 40px;
 	background-color: var(--white-color);
-	box-shadow: 0 0 50px var(--wrapper-shadow-color);
+	box-shadow: 0 0 40px var(--wrapper-shadow-color);
 	border: 5px solid var(--wrapper-shadow-color);
 	border-radius: 5px;
 	display: flex;
@@ -397,7 +399,7 @@ button.submit-button:active {
 
 /* When Sign Up Mode Is Active\ Sign Up Form */
 form.sign-up__form {
-	opacity: 0;
+	opacity: 1;
 }
 .wrapper__area.sign-up__Mode-active form.sign-up__form {
 	margin-top: 0;
@@ -406,7 +408,7 @@ form.sign-up__form {
 /* When Sign Up Mode Is Active\ Login Form */
 .wrapper__area.sign-up__Mode-active form.login__form {
 	margin-top: 650px;
-	opacity: 0;
+	opacity: 1;
 }
 
 /* End Forms Animation */

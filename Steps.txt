@@ -130,3 +130,7 @@
 ===
 
 - Added UI template
+
+===
+
+- React Router Added along with Link component instead of anchor tags
