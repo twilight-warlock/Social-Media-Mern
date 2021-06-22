@@ -143,3 +143,9 @@
 ===
 
 - Added functionality to login form
+
+===
+
+- Added redux store to setup redux
+- Added store to provider which encapsulates Router
+- Created reducer folder with index.js file to combine all reducers
