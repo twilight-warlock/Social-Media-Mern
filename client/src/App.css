@@ -35,24 +35,6 @@ body {
 	background-color: #fff;
 }
 
-/* Navbar */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.7rem 2rem;
-	position: fixed;
-	z-index: 1;
-	width: 100%;
-	top: 0;
-	border-bottom: solid 1px var(--primary-color);
-	opacity: 0.9;
-}
-
-.navbar a:hover {
-	color: var(--primary-color);
-}
-
 /* Landing Page */
 .landing {
 	position: relative;
@@ -103,7 +85,6 @@ body {
 	width: 770px;
 	height: 600px;
 	margin: auto;
-	margin-top: 40px;
 	background-color: var(--white-color);
 	box-shadow: 0 0 40px var(--wrapper-shadow-color);
 	border: 5px solid var(--wrapper-shadow-color);

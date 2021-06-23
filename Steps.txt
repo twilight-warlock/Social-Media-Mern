@@ -155,3 +155,14 @@
 - Added action file for alerts to dispatch alert with required conditions
 - Installed uuid package to generate random id
 - Added alert to combineReducers object
+
+===
+
+- Adding redux action to a component
+- Import and export connect
+- Bring in the action(s) required and add it as the second parameter to connect function encased in an object
+- Doing the above step would make us the action available as a prop object's key
+- To map a redux state to props, we use mapStateToProps so that we can access the data
+- Format in mapStateToProps => key : state.ReducerNameFromIndex
+- Added alert to app.js
+- Added setTimeout to rempveAlert after particular amount of seconds

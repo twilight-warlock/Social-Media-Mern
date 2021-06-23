@@ -62,7 +62,7 @@ const Login = () => {
 						<small className="input__error_message"></small>
 					</div>
 					<div className="form__actions">
-						<label for="checkboxInput" className="remeber_me">
+						<label htmlFor="checkboxInput" className="remeber_me">
 							<input type="checkbox" id="checkboxInput" />
 							<span className="checkmark"></span>
 							<span>Remeber Me</span>
