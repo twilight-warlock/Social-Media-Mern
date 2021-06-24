@@ -172,3 +172,9 @@
 - Using localStorage to save token and state for auth reducer
 - If success, set the token and isAuthenticated to true else remove token, set to null and isauthenticated to false
 - In Register component, added auth action and called it when client side validation completed
+
+===
+
+- If token exists in localStorage, use it and add it to headers else deletefrom headers of axios request
+- Made respective actions and reducers to register and load user data
+- Used useEffect hook to componentDidMount token if it already exists in localStorage
