@@ -166,3 +166,9 @@
 - Format in mapStateToProps => key : state.ReducerNameFromIndex
 - Added alert to app.js
 - Added setTimeout to rempveAlert after particular amount of seconds
+
+===
+
+- Using localStorage to save token and state for auth reducer
+- If success, set the token and isAuthenticated to true else remove token, set to null and isauthenticated to false
+- In Register component, added auth action and called it when client side validation completed

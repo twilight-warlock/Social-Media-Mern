@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
 	return (
 		<nav
-			className="navbar navbar-expand-lg navbar-dark mb-2"
+			className="navbar navbar-expand-lg navbar-dark pb-2"
 			style={{ backgroundColor: "#174fb8" }}
 		>
 			<a className="navbar-brand" href="/">
