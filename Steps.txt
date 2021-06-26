@@ -178,3 +178,7 @@
 - If token exists in localStorage, use it and add it to headers else deletefrom headers of axios request
 - Made respective actions and reducers to register and load user data
 - Used useEffect hook to componentDidMount token if it already exists in localStorage
+
+===
+
+- If token already exists either after login or register, redirect to /dashboard
