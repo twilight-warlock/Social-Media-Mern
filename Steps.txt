@@ -182,3 +182,8 @@
 ===
 
 - If token already exists either after login or register, redirect to /dashboard
+
+===
+
+- Added logout functionality
+- Change navbar according to login / logout

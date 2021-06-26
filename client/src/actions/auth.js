@@ -6,6 +6,7 @@ import {
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
+	LOGOUT,
 } from "./types";
 import { setAlert } from "./alert";
 import setAuthToken from "../controller/setAuthToken";
@@ -92,3 +93,9 @@ export const loginUser =
 			});
 		}
 	};
+
+export const logout = () => (dispatch) => {
+	dispatch({
+		type: LOGOUT,
+	});
+};
