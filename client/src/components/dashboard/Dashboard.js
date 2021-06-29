@@ -2,12 +2,29 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
+import Loading from "../layout/Loading";
 
-const Dashboard = ({ getCurrentProfile, auth, profile }) => {
+const Dashboard = ({
+	getCurrentProfile,
+	auth: { user },
+	profile: { profile, loading },
+}) => {
 	useEffect(() => {
 		getCurrentProfile();
 	}, []);
-	return <div>Dash</div>;
+
+	return loading && profile === null ? (
+		<Loading />
+	) : (
+		<>
+			<h1 className="supaBig text-primary">Dashboard</h1>
+			<p className="head">
+				<i className="fa fa-user"></i>
+				Welcome {user && user.username}
+			</p>
+			{profile !== null ? <>Yass</> : <>Blehhh</>}
+		</>
+	);
 };
 
 Dashboard.propTypes = {

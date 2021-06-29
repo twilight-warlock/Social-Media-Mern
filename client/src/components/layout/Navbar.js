@@ -6,6 +6,12 @@ import { logout } from "../../actions/auth";
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authenticatedLinks = (
 		<ul className="navbar-nav ml-auto">
+			<li className="nav-item active">
+				<a className="nav-link" href="/dashboard">
+					<i className="fa fa-user"></i>
+					<span className="d-sm-none d-md-inline-block"> &nbsp;Dashboard </span>
+				</a>
+			</li>
 			<li onClick={logout} className="nav-item active">
 				<a className="nav-link" href="#!">
 					<i className="fa fa-sign-out"></i>
@@ -20,7 +26,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
 					<i className="fa fa-home"></i> Home
-					<span className="sr-only">(current)</span>
 				</a>
 			</li>
 			<li className="nav-item active">
