@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import Loading from "../layout/Loading";
+import { Link } from "react-router-dom";
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -22,7 +23,16 @@ const Dashboard = ({
 				<i className="fa fa-user"></i>
 				Welcome {user && user.username}
 			</p>
-			{profile !== null ? <>Yass</> : <>Blehhh</>}
+			{profile !== null ? (
+				<>Yass</>
+			) : (
+				<>
+					<p>You are yet to add profile details, let's get started</p>
+					<Link to="/create-profile" className="btn btn-primary">
+						Create Profile
+					</Link>
+				</>
+			)}
 		</>
 	);
 };

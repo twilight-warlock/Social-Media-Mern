@@ -187,3 +187,7 @@
 
 - Added logout functionality
 - Change navbar according to login / logout
+
+===
+
+- Tp commit
