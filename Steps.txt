@@ -191,3 +191,8 @@
 ===
 
 - Tp commit
+
+===
+
+- useState to create forms
+- connect to bring in data from redux state, i.e backend
