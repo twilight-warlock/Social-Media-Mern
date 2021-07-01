@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { createProfile } from "../../actions/profile";
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile, history }) => {
 	const [formData, setformData] = useState({
 		headline: "",
 		summary: "",
@@ -37,6 +39,15 @@ const CreateProfile = (props) => {
 		facebook,
 	} = formData;
 
+	const onChange = (e) =>
+		setformData({ ...formData, [e.target.name]: e.target.value });
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+
+		createProfile(formData, history);
+	};
+
 	return (
 		<>
 			<h1 className="supaBig text-primary">Create Your Profile</h1>
@@ -44,13 +55,19 @@ const CreateProfile = (props) => {
 				<i className="fa fa-user"></i> Let's get some information to make your
 				profile stand out
 			</p>
-			<form className="form">
+			<form className="form" onSubmit={(e) => onSubmit(e)}>
 				<div className="form-group">
 					<label htmlFor="headline">
 						Headline <span className="badge badge-danger">*</span>{" "}
 					</label>
-					<select name="healine" className="w-75 d-block p-1" id="headline">
-						<option value="0">Select Professional Status</option>
+					<select
+						name="headline"
+						className="w-75 d-block p-1"
+						id="headline"
+						value={headline}
+						onChange={(e) => onChange(e)}
+					>
+						<option>Select Professional Status</option>
 						<option value="Developer">Developer</option>
 						<option value="Junior Developer">Junior Developer</option>
 						<option value="Senior Developer">Senior Developer</option>
@@ -69,6 +86,8 @@ const CreateProfile = (props) => {
 						placeholder="www.yourwebsite.com"
 						name="website"
 						className="w-75 p-1 d-block"
+						value={website}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className="form-group">
@@ -79,6 +98,8 @@ const CreateProfile = (props) => {
 						placeholder="ex. Mumbai, India"
 						name="location"
 						className="w-75 p-1 d-block"
+						value={location}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className="form-group">
@@ -89,6 +110,8 @@ const CreateProfile = (props) => {
 						placeholder="ex. HTML,CSS,JavaScript,PHP"
 						name="skills"
 						className="w-75 p-1 d-block"
+						value={skills}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className="form-group">
@@ -99,6 +122,8 @@ const CreateProfile = (props) => {
 						placeholder="ex. android"
 						name="githubUsername"
 						className="w-75 p-1 d-block"
+						value={githubUsername}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className="form-group">
@@ -107,7 +132,9 @@ const CreateProfile = (props) => {
 						id="summary"
 						placeholder="A short bio of yourself"
 						className="w-75 p-1 d-block"
-						name="bio"
+						name="summary"
+						value={summary}
+						onChange={(e) => onChange(e)}
 					></textarea>
 				</div>
 
@@ -130,6 +157,8 @@ const CreateProfile = (props) => {
 								placeholder="Twitter URL"
 								name="twitter"
 								className="w-75 ml-2 p-1"
+								value={twitter}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 
@@ -140,6 +169,8 @@ const CreateProfile = (props) => {
 								placeholder="Facebook URL"
 								name="facebook"
 								className="w-75 ml-2 p-1"
+								value={facebook}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 
@@ -150,6 +181,8 @@ const CreateProfile = (props) => {
 								placeholder="YouTube URL"
 								name="youtube"
 								className="w-75 ml-2 p-1"
+								value={youtube}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 
@@ -160,6 +193,8 @@ const CreateProfile = (props) => {
 								placeholder="Linkedin URL"
 								name="linkedin"
 								className="w-75 ml-2 p-1"
+								value={linkedin}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 
@@ -170,6 +205,8 @@ const CreateProfile = (props) => {
 								placeholder="Instagram URL"
 								name="instagram"
 								className="w-75 ml-2 p-1"
+								value={instagram}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 						<div className="form-group social-input">
@@ -179,6 +216,8 @@ const CreateProfile = (props) => {
 								placeholder="medium URL"
 								name="medium"
 								className="w-75 ml-2 p-1"
+								value={medium}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 						<div className="form-group social-input">
@@ -188,6 +227,8 @@ const CreateProfile = (props) => {
 								placeholder="devto URL"
 								name="devto"
 								className="w-75 ml-2 p-1"
+								value={devto}
+								onChange={(e) => onChange(e)}
 							/>
 						</div>
 					</>
@@ -202,6 +243,8 @@ const CreateProfile = (props) => {
 	);
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+	createProfile: PropTypes.func.isRequired,
+};
 
-export default connect()(CreateProfile);
+export default connect(null, { createProfile })(withRouter(CreateProfile));
