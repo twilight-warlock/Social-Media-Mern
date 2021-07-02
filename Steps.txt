@@ -207,3 +207,7 @@
 
 - added routes and components to edit profile
 - Minor changes
+
+===
+
+- Added a component to refactor profile forms
