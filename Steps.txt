@@ -227,3 +227,7 @@
 ===
 
 - Added Project form
+
+===
+
+- Added components to list education and experience

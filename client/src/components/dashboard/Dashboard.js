@@ -5,6 +5,8 @@ import { getCurrentProfile } from "../../actions/profile";
 import Loading from "../layout/Loading";
 import { Link } from "react-router-dom";
 import DashboardFunctionalities from "./DashboardFunctionalities";
+import Experience from "./Experience";
+import Education from "./Education";
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -25,7 +27,11 @@ const Dashboard = ({
 				Welcome {user && user.username}
 			</p>
 			{profile !== null ? (
-				<DashboardFunctionalities />
+				<>
+					<DashboardFunctionalities />
+					<Experience experience={profile.experience} />
+					<Education education={profile.education} />
+				</>
 			) : (
 				<>
 					<p>You are yet to add profile details, let's get started</p>
