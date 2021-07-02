@@ -215,3 +215,7 @@
 ===
 
 - Added actions and reducer to add experience, education and projects
+
+===
+
+- Added experience form and created other form templates
