@@ -2,6 +2,7 @@
 
 :root {
 	--primary-color: #174fb8;
+	--primary-color2: #174fb8;
 	--dark-color: #343a40;
 	--light-color: #f4f4f4;
 	/* --danger-color: #dc3545; */
@@ -100,7 +101,11 @@ body {
 }
 
 .btn-primary2 {
-	background-color: var(--primary-color);
+	background-color: var(--primary-color2);
+	color: white;
+}
+.btn-primary2 i.fa {
+	/* background-color: white; */
 	color: white;
 }
 

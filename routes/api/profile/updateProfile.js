@@ -71,7 +71,9 @@ router.post(
 			profileFields.social.facebook = normalize(facebook, { forceHttps: true });
 
 		if (skills)
-			profileFields.skills = skills.split(",").map((skill) => skill.trim());
+			profileFields.skills = Array.isArray(skills)
+				? skills
+				: skills.split(",").map((skill) => " " + skill.trim());
 
 		try {
 			let profile = await Profile.findOne({ user: req.user.id });

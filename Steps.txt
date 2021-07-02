@@ -203,4 +203,7 @@
 - added actions with a post request which required 3 params: route, data, config(headers)
 - To redirect in redux, we use the history object by pulling it in from props after bringing in the withRouter from react-router-dom
 
+===
 
+- added routes and components to edit profile
+- Minor changes
