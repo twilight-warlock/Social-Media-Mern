@@ -223,3 +223,7 @@
 ===
 
 - Added education form
+
+===
+
+- Added Project form

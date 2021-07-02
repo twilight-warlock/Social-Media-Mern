@@ -39,7 +39,7 @@ const AddEducation = ({ addEducation, history }) => {
 
 	return (
 		<>
-			<h1 className="supaBig text-primary">Edit Your Profile</h1>
+			<h1 className="supaBig text-primary">Add Education</h1>
 			<p className="head">
 				<i className="fa fa-user"></i> Let's update your information
 			</p>
