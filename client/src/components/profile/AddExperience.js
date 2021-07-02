@@ -55,7 +55,7 @@ const AddExperience = ({ addExperience, history }) => {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="companyName">Role</label>
+					<label htmlFor="companyName">Company Name</label>
 					<input
 						id="companyName"
 						type="text"

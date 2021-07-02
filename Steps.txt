@@ -219,3 +219,7 @@
 ===
 
 - Added experience form and created other form templates
+
+===
+
+- Added education form
