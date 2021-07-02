@@ -64,18 +64,18 @@ const AddExperience = ({ addExperience, history }) => {
 						className="w-75 p-1 d-block"
 						value={companyName}
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="employmentType">
-						Employment Type <span className="badge badge-danger">*</span>{" "}
-					</label>
+					<label htmlFor="employmentType">Employment Type</label>
 					<select
 						name="employmentType"
 						className="w-75 d-block p-1"
 						id="employmentType"
 						value={employmentType}
 						onChange={(e) => onChange(e)}
+						required
 					>
 						<option valiue="0">Select Employment Type</option>
 						<option value="Part Time">Part Time</option>
@@ -93,6 +93,7 @@ const AddExperience = ({ addExperience, history }) => {
 						className="w-75 p-1 d-block"
 						value={location}
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 
@@ -102,8 +103,10 @@ const AddExperience = ({ addExperience, history }) => {
 						type="date"
 						id="startDate"
 						name="startDate"
+						className="w-75 p-1 d-block"
 						value={startDate}
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 
@@ -112,6 +115,7 @@ const AddExperience = ({ addExperience, history }) => {
 					<input
 						type="checkbox"
 						name="current"
+						className="ml-2 p-1"
 						checked={current}
 						value={current}
 						onChange={() => {
@@ -126,6 +130,7 @@ const AddExperience = ({ addExperience, history }) => {
 						type="date"
 						id="endDate"
 						name="endDate"
+						className="w-75 p-1 d-block"
 						value={endDate}
 						onChange={(e) => onChange(e)}
 						disabled={current}
@@ -135,9 +140,11 @@ const AddExperience = ({ addExperience, history }) => {
 				<div className="form-group">
 					<label htmlFor="description">Description</label>
 					<input
-						type="date"
+						type="text"
+						placeholder="Describe your role"
 						id="description"
 						name="description"
+						className="w-75 p-1 d-block"
 						value={description}
 						onChange={(e) => onChange(e)}
 					/>
