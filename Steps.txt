@@ -211,3 +211,7 @@
 ===
 
 - Added a component to refactor profile forms
+
+===
+
+- Added actions and reducer to add experience, education and projects
