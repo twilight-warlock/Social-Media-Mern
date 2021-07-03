@@ -235,3 +235,7 @@
 ===
 
 - Added projects section along with template each project page
+
+===
+
+- Single page project page

@@ -61,7 +61,7 @@ const App = () => {
 								component={AddEducation}
 							/>
 							<PrivateRoute exact path="/add-project" component={AddProject} />
-							<PrivateRoute exact path="/your-project" component={FullProject} />
+							<PrivateRoute path="/your-project/:id" component={FullProject} />
 						</Switch>
 					</section>
 				</Fragment>
