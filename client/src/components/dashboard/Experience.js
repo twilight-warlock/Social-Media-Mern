@@ -24,9 +24,10 @@ const Experience = ({ experience }) => {
 			<table className="table">
 				<thead>
 					<tr>
-						<th>Company</th>
-						<th>Role</th>
-						<th>Years</th>
+						<th style={{ width: "18rem" }}>Company</th>
+						<th style={{ width: "18rem" }}>Role</th>
+						<th style={{ width: "18rem" }}>Years</th>
+						<th style={{ width: "18rem" }}>Delete</th>
 						<th />
 					</tr>
 				</thead>

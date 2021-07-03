@@ -231,3 +231,7 @@
 ===
 
 - Added components to list education and experience
+
+===
+
+- Added projects section along with template each project page

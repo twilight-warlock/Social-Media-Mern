@@ -24,9 +24,10 @@ const Education = ({ education }) => {
 			<table className="table">
 				<thead>
 					<tr>
-						<th>University</th>
-						<th>Degree</th>
-						<th>Years</th>
+						<th style={{ width: "18rem" }}>University</th>
+						<th style={{ width: "18rem" }}>Degree</th>
+						<th style={{ width: "18rem" }}>Years</th>
+						<th style={{ width: "18rem" }}>Delete</th>
 						<th />
 					</tr>
 				</thead>
