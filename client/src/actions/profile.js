@@ -1,6 +1,12 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "./types";
+import {
+	CLEAR_PROFILE,
+	DELETE_ACCOUNT,
+	GET_PROFILE,
+	PROFILE_ERROR,
+	UPDATE_PROFILE,
+} from "./types";
 
 export const getCurrentProfile = () => async (dispatch) => {
 	try {
@@ -158,7 +164,7 @@ export const addProjects = (formData, history) => async (dispatch) => {
 };
 
 // Delete an experience
-const deleteExp = (id) => async (dispatch) => {
+export const deleteExp = (id) => async (dispatch) => {
 	try {
 		const res = await axios.delete(`/api/profile/experience/${id}`);
 
@@ -182,7 +188,7 @@ const deleteExp = (id) => async (dispatch) => {
 };
 
 // Delete an education
-const deleteEd = (id) => async (dispatch) => {
+export const deleteEd = (id) => async (dispatch) => {
 	try {
 		const res = await axios.delete(`/api/profile/education/${id}`);
 
@@ -206,7 +212,7 @@ const deleteEd = (id) => async (dispatch) => {
 };
 
 // Delete an projects
-const deleteProject = (id) => async (dispatch) => {
+export const deleteProject = (id) => async (dispatch) => {
 	try {
 		const res = await axios.delete(`/api/profile/projects/${id}`);
 
@@ -226,5 +232,34 @@ const deleteProject = (id) => async (dispatch) => {
 			type: PROFILE_ERROR,
 			payload: { msg: err.response.statusText, status: err.response.status },
 		});
+	}
+};
+
+// Delete an account and profile
+export const deleteAccount = (id) => async (dispatch) => {
+	if (window.confirm("Are you sure you want to delete the entire account?")) {
+		try {
+			const res = await axios.delete("/api/profile");
+
+			dispatch({
+				type: CLEAR_PROFILE,
+			});
+
+			dispatch({
+				type: DELETE_ACCOUNT,
+			});
+
+			dispatch(setAlert("Account deleted", "secondary"));
+		} catch (err) {
+			const errors = err.response.data.errors;
+
+			if (errors) {
+				errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+			}
+			dispatch({
+				type: PROFILE_ERROR,
+				payload: { msg: err.response.statusText, status: err.response.status },
+			});
+		}
 	}
 };

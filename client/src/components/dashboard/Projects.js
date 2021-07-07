@@ -2,15 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { deleteProject } from "../../actions/profile";
 
-const Projects = ({ project }) => {
+const Projects = ({ project, deleteProject }) => {
 	const projects = project.map((pro) => {
 		const link = `/your-project/${pro._id}`;
 		return (
 			<div
 				className="card mx-3"
 				key={pro._id}
-				style={{ width: "18rem", height: "26rem" }}
+				style={{ width: "18rem", height: "28rem" }}
 			>
 				<img
 					className="card-img-top"
@@ -26,11 +27,16 @@ const Projects = ({ project }) => {
 						{" "}
 						<Link to={link}> {pro.title} </Link>
 					</h5>
-					<p className="card-text">{pro.description.slice(0, 120)}...</p>
+					<p className="card-text">{pro.description.slice(0, 70)}...</p>
 					<a href={pro.projectLink} className="btn btn-primary">
 						Project Link
 					</a>
-					<button className="btn btn-danger ml-2">Delete</button>
+					<button
+						className="btn btn-danger ml-2"
+						onClick={() => deleteProject(pro._id)}
+					>
+						Delete
+					</button>
 				</div>
 			</div>
 		);
@@ -46,6 +52,7 @@ const Projects = ({ project }) => {
 
 Projects.propTypes = {
 	project: PropTypes.array.isRequired,
+	deleteProject: PropTypes.func.isRequired,
 };
 
-export default Projects;
+export default connect(null, { deleteProject })(Projects);

@@ -239,3 +239,8 @@
 ===
 
 - Single page project page
+
+===
+
+- Delete exp, edu, posts and profile actions used to delete all
+- Updated route to delete user's posts as profile is deleted
