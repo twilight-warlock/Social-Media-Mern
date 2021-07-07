@@ -23,7 +23,7 @@ const profile = (state = initialState, action) => {
 		case UPDATE_PROFILE:
 			return { ...state, profile: payload, loading: false };
 		case GET_PROFILES:
-			return { ...state, profiles: payload, loading: false };
+			return { ...state, profilesList: payload, loading: false };
 		case GET_REPOS:
 			return { ...state, githubRepos: payload, loading: false };
 		case PROFILE_ERROR:
