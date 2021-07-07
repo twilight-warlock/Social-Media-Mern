@@ -156,3 +156,75 @@ export const addProjects = (formData, history) => async (dispatch) => {
 		});
 	}
 };
+
+// Delete an experience
+const deleteExp = (id) => async (dispatch) => {
+	try {
+		const res = await axios.delete(`/api/profile/experience/${id}`);
+
+		dispatch({
+			type: UPDATE_PROFILE,
+			payload: res.data,
+		});
+
+		dispatch(setAlert("Experience deleted", "success"));
+	} catch (err) {
+		const errors = err.response.data.errors;
+
+		if (errors) {
+			errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+		}
+		dispatch({
+			type: PROFILE_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+// Delete an education
+const deleteEd = (id) => async (dispatch) => {
+	try {
+		const res = await axios.delete(`/api/profile/education/${id}`);
+
+		dispatch({
+			type: UPDATE_PROFILE,
+			payload: res.data,
+		});
+
+		dispatch(setAlert("Education deleted", "success"));
+	} catch (err) {
+		const errors = err.response.data.errors;
+
+		if (errors) {
+			errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+		}
+		dispatch({
+			type: PROFILE_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+// Delete an projects
+const deleteProject = (id) => async (dispatch) => {
+	try {
+		const res = await axios.delete(`/api/profile/projects/${id}`);
+
+		dispatch({
+			type: UPDATE_PROFILE,
+			payload: res.data,
+		});
+
+		dispatch(setAlert("Project deleted", "success"));
+	} catch (err) {
+		const errors = err.response.data.errors;
+
+		if (errors) {
+			errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+		}
+		dispatch({
+			type: PROFILE_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
