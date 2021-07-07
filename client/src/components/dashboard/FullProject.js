@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import Loading from "../layout/Loading";
 import { getCurrentProfile } from "../../actions/profile";
 

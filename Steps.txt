@@ -244,3 +244,7 @@
 
 - Delete exp, edu, posts and profile actions used to delete all
 - Updated route to delete user's posts as profile is deleted
+
+=== 
+
+- Added actions for get all profiles, get profiles by ID and get github repos
