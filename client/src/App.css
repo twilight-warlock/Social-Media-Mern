@@ -501,6 +501,11 @@ form.sign-up__form {
 .wrapper__area.sign-up__Mode-active .sign-up__aside-info {
 	opacity: 1;
 }
+
+.round {
+	border-radius: 50%;
+}
+
 /* ---------------- Media ------------------ */
 
 @media (max-width: 700px) {
