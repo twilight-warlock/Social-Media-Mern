@@ -21,7 +21,14 @@ const Profiles = ({ getAllProfiles, profile: { profilesList, loading } }) => {
 						<i className="fab fa-connectdevelop"></i> Let's connect with
 						developers
 					</p>
-					<div className="profiles">
+					<div
+						style={{
+							display: "flex",
+							flexWrap: "wrap",
+							justifyContent: "space-between",
+							marginRight: "10px",
+						}}
+					>
 						{profilesList.length > 0 ? (
 							profilesList.map((profile) => (
 								<ProfileItem key={profile._id} profile={profile} />

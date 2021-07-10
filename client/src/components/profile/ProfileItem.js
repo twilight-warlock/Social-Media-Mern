@@ -13,28 +13,34 @@ const ProfileItem = ({
 	},
 }) => {
 	return (
-		<div className="profile bg-light">
-			<div className="row">
-				<div className="col-12 col-md-4 justify-content-center w-100 align-items-center">
-					<img src={avatar} alt="avatar" className="round" />
-				</div>
-				<div>
-					<h2>{username}</h2>
-					<h3>{headline}</h3>
-					{summary && <p className="my-2">{summary}</p>}
-					{location && <p className="my-2">{location}</p>}
-					<Link to={`/profile/${_id}`} className="btn btn-primary2">
-						View Profile
-					</Link>
-				</div>
+		<div className="card p-2 mb-3" style={{ width: "350px" }}>
+			<img
+				src={avatar}
+				alt="avatar"
+				className="round card-img-top"
+				height="300px"
+			/>
+			<h3>{username}</h3>
+			{location && (
+				<p className="my-1">
+					<i className="fas fa-map-marker-alt"></i> {location}
+				</p>
+			)}
+			<div>
+				<h6>{headline}</h6>
+				{summary && <p className="my-2">{summary}</p>}
+				<ul>
+					{skills.slice(0, 4).map((skill, index) => (
+						<li key={index} className="badge badge-primary mr-2">
+							<i className="fas fa-check"></i> {skill}
+						</li>
+					))}
+				</ul>
+
+				<Link to={`/profile/${_id}`} className="btn btn-primary2">
+					View Profile
+				</Link>
 			</div>
-			<ul>
-				{skills.slice(0, 4).map((skill, index) => (
-					<li key={index} className="badge badge-primary">
-						<i className="fas fa-check"></i> {skill}
-					</li>
-				))}
-			</ul>
 		</div>
 	);
 };
