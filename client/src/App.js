@@ -18,6 +18,7 @@ import AddEducation from "./components/profile/AddEducation";
 import AddProject from "./components/profile/AddProject";
 import FullProject from "./components/dashboard/FullProject";
 import Profiles from "./components/profile/Profiles";
+import ProfileByID from "./components/profile/ProfileByID";
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -41,6 +42,7 @@ const App = () => {
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/register" component={Register} />
 							<Route exact path="/profiles" component={Profiles} />
+							<Route path="/profile/:prof_id" component={ProfileByID} />
 							<PrivateRoute exact path="/dashboard" component={Dashboard} />
 							<PrivateRoute
 								exact

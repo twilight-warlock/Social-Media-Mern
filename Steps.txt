@@ -248,3 +248,7 @@
 === 
 
 - Added actions for get all profiles, get profiles by ID and get github repos
+
+===
+
+- Basic template created for getting every user's profile
