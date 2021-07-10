@@ -48,7 +48,10 @@ const Projects = ({ project, deleteProject, isProfile }) => {
 		<>
 			{projects && projects.length > 0 && (
 				<>
-					<h2 className="my-2">Projects</h2>
+					<h2 className="my-2 text-primary2 p-4">
+						{" "}
+						<i className="fa fa-list-alt"></i> Projects
+					</h2>
 					<div className="d-flex">{projects}</div>
 				</>
 			)}

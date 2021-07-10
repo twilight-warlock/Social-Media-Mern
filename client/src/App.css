@@ -108,6 +108,10 @@ body {
 	/* background-color: white; */
 	color: white;
 }
+.text-primary2 {
+	background-color: white;
+	color: var(--primary-color2);
+}
 
 /* Wrapper Area */
 .wrapper__area {

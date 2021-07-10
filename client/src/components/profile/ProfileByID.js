@@ -8,6 +8,7 @@ import ProfileHeader from "./ProfileHeader";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import ProfileProjects from "./ProfileProjects";
+import ProfileRepos from "./ProfileRepos";
 
 const ProfileByID = ({
 	getProfileByID,
@@ -40,6 +41,7 @@ const ProfileByID = ({
 						<ProfileExperience profile={profile} />
 						<ProfileEducation profile={profile} />
 						<ProfileProjects profile={profile} />
+						<ProfileRepos username={profile.githubUsername} />
 					</div>
 				</>
 			)}

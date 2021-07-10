@@ -17,7 +17,7 @@ const ProfileHeader = ({
 			<div class="profile-top bg-primary p-2 text-white">
 				<img class="round my-1" src={avatar} alt="profimg" />
 				<h1 class="supaBig">{username}</h1>
-				<p class="head ">{headline}</p>
+				<p class="head">{headline}</p>
 				{location && (
 					<p>
 						<i className="fas fa-map-marker-alt"></i> {location}
@@ -87,12 +87,9 @@ const ProfileHeader = ({
 
 						<h2 class="text-primary">Skill Set</h2>
 						<div class="skills">
-							<div class="p-1">
-								<i class="fa fa-check text-primary"></i> HTML
-							</div>
 							{skills.map((skill, index) => (
 								<div class="p-1" key={index}>
-									<i class="fa fa-check text-primary"></i> {skill}
+									<i class="fa fa-check text-primary2"></i> {skill}
 								</div>
 							))}
 						</div>
