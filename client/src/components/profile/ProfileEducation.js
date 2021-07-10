@@ -17,6 +17,9 @@ const ProfileEducation = ({ profile: { education } }) => {
 								<div key={edu._id}>
 									<h3>{edu.universityName}</h3>
 									<p>
+										<i className="fas fa-map-marker-alt"></i> {edu.location}
+									</p>
+									<p>
 										{formatDate(edu.startDate)} -{" "}
 										{edu.endDate ? formatDate(edu.endDate) : "Now"}
 									</p>

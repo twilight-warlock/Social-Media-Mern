@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteProject } from "../../actions/profile";
 
-const Projects = ({ project, deleteProject }) => {
+const Projects = ({ project, deleteProject, isProfile }) => {
 	const projects = project.map((pro) => {
 		const link = `/your-project/${pro._id}`;
 		return (
@@ -31,12 +31,14 @@ const Projects = ({ project, deleteProject }) => {
 					<a href={pro.projectLink} className="btn btn-primary">
 						Project Link
 					</a>
-					<button
-						className="btn btn-danger ml-2"
-						onClick={() => deleteProject(pro._id)}
-					>
-						Delete
-					</button>
+					{!isProfile && (
+						<button
+							className="btn btn-danger ml-2"
+							onClick={() => deleteProject(pro._id)}
+						>
+							Delete
+						</button>
+					)}
 				</div>
 			</div>
 		);
@@ -44,8 +46,12 @@ const Projects = ({ project, deleteProject }) => {
 
 	return (
 		<>
-			<h2 className="my-2">Projects</h2>
-			<div className="d-flex">{projects}</div>
+			{projects && projects.length > 0 && (
+				<>
+					<h2 className="my-2">Projects</h2>
+					<div className="d-flex">{projects}</div>
+				</>
+			)}
 		</>
 	);
 };
@@ -53,6 +59,7 @@ const Projects = ({ project, deleteProject }) => {
 Projects.propTypes = {
 	project: PropTypes.array.isRequired,
 	deleteProject: PropTypes.func.isRequired,
+	isProfile: PropTypes.bool,
 };
 
 export default connect(null, { deleteProject })(Projects);

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import ProfileHeader from "./ProfileHeader";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileProjects from "./ProfileProjects";
 
 const ProfileByID = ({
 	getProfileByID,
@@ -38,6 +39,7 @@ const ProfileByID = ({
 						<ProfileHeader profile={profile} />
 						<ProfileExperience profile={profile} />
 						<ProfileEducation profile={profile} />
+						<ProfileProjects profile={profile} />
 					</div>
 				</>
 			)}
