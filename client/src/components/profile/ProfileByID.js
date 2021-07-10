@@ -5,6 +5,8 @@ import { getProfileByID } from "../../actions/profile";
 import Loading from "../layout/Loading";
 import { Link } from "react-router-dom";
 import ProfileHeader from "./ProfileHeader";
+import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
 
 const ProfileByID = ({
 	getProfileByID,
@@ -34,6 +36,8 @@ const ProfileByID = ({
 						)}
 					<div className="profile-grid my-1">
 						<ProfileHeader profile={profile} />
+						<ProfileExperience profile={profile} />
+						<ProfileEducation profile={profile} />
 					</div>
 				</>
 			)}

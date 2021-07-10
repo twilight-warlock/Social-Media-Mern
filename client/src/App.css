@@ -526,6 +526,7 @@ form.sign-up__form {
 		"exp edu"
 		"github github";
 	grid-gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .profile-top {
