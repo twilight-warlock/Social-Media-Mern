@@ -19,6 +19,7 @@ import AddProject from "./components/profile/AddProject";
 import FullProject from "./components/dashboard/FullProject";
 import Profiles from "./components/profile/Profiles";
 import ProfileByID from "./components/profile/ProfileByID";
+import Posts from "./components/post/Posts";
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -64,6 +65,7 @@ const App = () => {
 								path="/add-education"
 								component={AddEducation}
 							/>
+							<PrivateRoute exact path="/posts" component={Posts} />
 							<PrivateRoute exact path="/add-project" component={AddProject} />
 							<PrivateRoute path="/your-project/:id" component={FullProject} />
 						</Switch>

@@ -12,6 +12,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				</a>
 			</li>
 			<li className="nav-item active">
+				<a className="nav-link" href="/posts">
+					<i className="fas fa-list-alt"></i> Posts
+				</a>
+			</li>
+			<li className="nav-item active">
 				<a className="nav-link" href="/dashboard">
 					<i className="fa fa-user"></i>
 					<span className="d-sm-none d-md-inline-block"> &nbsp;Dashboard </span>

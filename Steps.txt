@@ -252,3 +252,7 @@
 ===
 
 - Basic template created for getting every user's profile
+
+===
+
+- Created actions, reducers and component for Posts
