@@ -4,6 +4,7 @@ import { getPosts } from "../../actions/post";
 import { connect } from "react-redux";
 import Loading from "../layout/Loading";
 import PostItem from "./PostItem";
+import PostForm from "./PostForm";
 
 const Post = ({ getPosts, post: { posts, loading } }) => {
 	useEffect(() => {
@@ -18,6 +19,7 @@ const Post = ({ getPosts, post: { posts, loading } }) => {
 			<p className="head">
 				<i className="fa fa-user"></i> Welcome to the Highlight community
 			</p>
+			<PostForm />
 			<div className="posts">
 				{posts.map((post) => (
 					<PostItem key={post._id} post={post} />
