@@ -20,6 +20,7 @@ import FullProject from "./components/dashboard/FullProject";
 import Profiles from "./components/profile/Profiles";
 import ProfileByID from "./components/profile/ProfileByID";
 import Posts from "./components/post/Posts";
+import Post from "./components/post/Post";
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -44,6 +45,7 @@ const App = () => {
 							<Route exact path="/register" component={Register} />
 							<Route exact path="/profiles" component={Profiles} />
 							<Route path="/profile/:prof_id" component={ProfileByID} />
+							<PrivateRoute path="/post/:post_id" component={Post} />
 							<PrivateRoute exact path="/dashboard" component={Dashboard} />
 							<PrivateRoute
 								exact
