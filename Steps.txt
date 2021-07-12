@@ -256,3 +256,7 @@
 ===
 
 - Created actions, reducers and component for Posts
+
+===
+
+- Added functionality to add and remove likes
