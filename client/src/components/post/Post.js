@@ -5,6 +5,7 @@ import Loading from "../layout/Loading";
 import { getPost } from "../../actions/post";
 import PostItem from "./PostItem";
 import { Link } from "react-router-dom";
+import CommentForm from "./CommentForm";
 
 const Post = ({ getPost, post: { post, loading }, match: { params } }) => {
 	useEffect(() => {
@@ -19,6 +20,7 @@ const Post = ({ getPost, post: { post, loading }, match: { params } }) => {
 				<i className="fa fa-chevron-left"></i> Back to posts
 			</Link>
 			<PostItem post={post} showActions={false} />
+			<CommentForm post_id={post._id} />
 		</>
 	);
 };

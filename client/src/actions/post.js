@@ -1,11 +1,13 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 import {
+	ADD_COMMENT,
 	ADD_POST,
 	DELETE_POST,
 	GET_POST,
 	GET_POSTS,
 	POST_ERROR,
+	REMOVE_COMMENT,
 	UPDATE_LIKES,
 } from "./types";
 
@@ -112,6 +114,54 @@ export const getPost = (id) => async (dispatch) => {
 			type: GET_POST,
 			payload: res.data,
 		});
+	} catch (err) {
+		dispatch({
+			type: POST_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+// Add a comment
+export const addComment = (post_id, formData) => async (dispatch) => {
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+
+		const res = await axios.put(
+			`/api/posts/comment/${post_id}`,
+			formData,
+			config
+		);
+
+		dispatch({
+			type: ADD_COMMENT,
+			payload: res.data,
+		});
+
+		dispatch(setAlert("Added a Comment", "success"));
+	} catch (err) {
+		dispatch({
+			type: POST_ERROR,
+			payload: { msg: err.response.statusText, status: err.response.status },
+		});
+	}
+};
+
+// Remove a comment
+export const removeComment = (post_id, comment_id) => async (dispatch) => {
+	try {
+		await axios.delete(`/api/posts/comment/${post_id}/${comment_id}`);
+
+		dispatch({
+			type: REMOVE_COMMENT,
+			payload: comment_id,
+		});
+
+		dispatch(setAlert("Removed Comment", "success"));
 	} catch (err) {
 		dispatch({
 			type: POST_ERROR,
