@@ -260,3 +260,8 @@
 ===
 
 - Added functionality to add and remove likes
+
+===
+
+- Added functionality to remove a comments
+- Main functionality completed

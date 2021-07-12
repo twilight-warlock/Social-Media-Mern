@@ -51,9 +51,9 @@ const post = (state = initialState, action) => {
 		case REMOVE_COMMENT:
 			return {
 				...state,
-				posts: {
+				post: {
 					...state.post,
-					comments: state.posts.comments.filter(
+					comments: state.post.comments.filter(
 						(comment) => comment._id !== payload
 					),
 				},

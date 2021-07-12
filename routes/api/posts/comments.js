@@ -47,7 +47,7 @@ router.put("/comment/:post_id", auth, async (req, res) => {
 });
 
 /*
-@route      DELETE api/posts/:post_id
+@route      DELETE api/posts/:post_id/:comment_id
 @desc       delete a comment
 @access     Private
 */
