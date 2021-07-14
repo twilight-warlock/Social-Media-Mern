@@ -265,3 +265,7 @@
 
 - Added functionality to remove a comments
 - Main functionality completed
+
+===
+
+- Minor change
